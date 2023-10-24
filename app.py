@@ -13,7 +13,7 @@ from gradio_client import Client
 
 app = Flask(__name__)
 CORS(app)
-URL = 'https://589718ad53cb5de22a.gradio.live'
+URL = 'https://6e83d44bb53f37fac5.gradio.live'
 
 # Load environment variables
 PROJECT_ID = os.environ.get('PROJECT_ID')
