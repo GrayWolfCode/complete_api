@@ -9,7 +9,6 @@ import io
 import os
 import base64
 from PIL import Image, PngImagePlugin
-from gradio_client import Client
 
 app = Flask(__name__)
 CORS(app)
@@ -103,13 +102,9 @@ def regenerate_image():
             response = requests.post(url=f'{URL}/sdapi/v1/img2img', json=payload)
             r = response.json()
         else:
-            client = Client("https://6b78c663d6403957d6.gradio.live/")
+
             prompt_add= prompt_response + ' ' + instruct_response
-            result = client.predict(
-                prompt_add,
-                api_name="/predict"
-            )
-            print(result)
+
             if drawing_style == "Pen Sketch":
                 prompts = 'vvvsketch, ' + prompt_add +' <lora:vvvsketch:1>'
             else:
